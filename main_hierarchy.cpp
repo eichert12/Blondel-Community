@@ -52,14 +52,14 @@ parse_args(int argc, char **argv) {
     if(argv[i][0] == '-') {
       switch(argv[i][1]) {
       case 'l':
-	display_level = atoi(argv[i+1]);
-	i++;
-	break;
+      	display_level = atoi(argv[i+1]);
+      	i++;
+      	break;
       case 'n':
-	display_level = -1;
-	break;
+      	display_level = -1;
+      	break;
       default:
-	usage(argv[0], "Unknown option\n");
+	      usage(argv[0], "Unknown option\n");
       }
     } else {
       if (filename==NULL)
@@ -87,8 +87,8 @@ main(int argc, char **argv) {
 
     if (finput) {
       if (node==0) {
-	l++;
-	levels.resize(l+1);
+      	l++;
+      	levels.resize(l+1);
       }
       levels[l].push_back(nodecomm);
     }
@@ -108,7 +108,7 @@ main(int argc, char **argv) {
     
     for (l=0 ; l<display_level ; l++)
       for (unsigned int node=0 ; node<levels[0].size() ; node++)
-	n2c[node] = levels[l][n2c[node]];
+	      n2c[node] = levels[l][n2c[node]];
     
     for (unsigned int node=0 ; node<levels[0].size() ; node++)
       cout << node << " " << n2c[node] << endl;

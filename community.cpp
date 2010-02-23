@@ -94,9 +94,9 @@ Community::neigh_comm(int node) {
     if (neigh!=node) {
       map<int,int>::iterator it = res.find(neigh_comm);
       if (it!=res.end())
-	it->second+=neigh_weight;
+	      it->second+=neigh_weight;
       else
-	res.insert(make_pair(neigh_comm,neigh_weight));
+	      res.insert(make_pair(neigh_comm,neigh_weight));
     }
   }
   
@@ -182,15 +182,15 @@ Community::partition2graph_binary() {
       pair<int *,int *> p = g.neighbors(comm_nodes[comm][node]);
       int deg = g.nb_neighbors(comm_nodes[comm][node]);
       for (int i=0 ; i<deg ; i++) {
-	int neigh        = *(p.first+i);
-	int neigh_comm   = renumber[n2c[neigh]];
-	int neigh_weight = (g.weights==NULL)?1:*(p.second+i);
+      	int neigh        = *(p.first+i);
+      	int neigh_comm   = renumber[n2c[neigh]];
+      	int neigh_weight = (g.weights==NULL)?1:*(p.second+i);
 
-	it = m.find(neigh_comm);
-	if (it==m.end())
-	  m.insert(make_pair(neigh_comm, neigh_weight));
-	else
-	  it->second+=neigh_weight;
+      	it = m.find(neigh_comm);
+      	if (it==m.end())
+      	  m.insert(make_pair(neigh_comm, neigh_weight));
+      	else
+      	  it->second+=neigh_weight;
       }
     }
 
@@ -224,8 +224,10 @@ Community::one_level() {
   //   or a predefined number of pass have been done
 
   vector<int> random_order(size);
-  for (int i=0 ; i<size ; i++)
+  for (int i=0 ; i<size ; i++) {
     random_order[i]=i;
+  }
+  
   for (int i=0 ; i<size-1 ; i++) {
     int rand_pos = rand()%(size-i)+i;
     int tmp      = random_order[i];

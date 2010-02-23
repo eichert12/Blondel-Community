@@ -120,7 +120,7 @@ Graph::Graph(int n1, int k1, int n2, int k2, int n3, int k3) {
   for (int i=0 ; i<nb_nodes ; i++)
     for (int j=0 ; j<nb_nodes ; j++)
       if (gr[i][j]==1)
-	links[pos++]=j;
+	      links[pos++]=j;
 
 //  for (int i=0 ; i<nb_nodes ; i++)
 //    cerr << degrees[i] << " " ;
@@ -143,15 +143,16 @@ Graph::Graph(int n1, int k1, int n2, int k2) {
     for (int j=i+1 ; j<nb_nodes ; j++) {
       double v = rand()*1./RAND_MAX;
       if (i/n1==j/n1) { // i and j in the same subgroup
-	if (v<=(k1*1.)/(n1-1.)) {
-	  gr[i][j]=gr[j][i]=1;
-	  nb_links++;
-	}
+      	if (v<=(k1*1.)/(n1-1.)) {
+      	  gr[i][j]=gr[j][i]=1;
+      	  
+      	  nb_links++;
+      	}
       } else { // i and j in different groups
-	if (v<=(k2*1.)/(n1*(n2-1.))) {
-	  gr[i][j]=gr[j][i]=1;
-	  nb_links++;
-	}
+      	if (v<=(k2*1.)/(n1*(n2-1.))) {
+      	  gr[i][j]=gr[j][i]=1;
+      	  nb_links++;
+      	}
       }
     }
 
@@ -173,7 +174,7 @@ Graph::Graph(int n1, int k1, int n2, int k2) {
   for (int i=0 ; i<nb_nodes ; i++)
     for (int j=0 ; j<nb_nodes ; j++)
       if (gr[i][j]==1)
-	links[pos++]=j;
+	      links[pos++]=j;
 }
 
 Graph::Graph(int n, int m, int t, int *d, int *l, int *w) {
@@ -192,10 +193,10 @@ Graph::display() {
     pair<int *,int *> p = neighbors(node);
     for (int i=0 ; i<nb_neighbors(node) ; i++) {
       if (weights!=NULL)
-	cout << node << " " << *(p.first+i) << " " << *(p.second+i) << endl;
+	      cout << node << " " << *(p.first+i) << " " << *(p.second+i) << endl;
       else {
-		cout << (node+1) << " " << (*(p.first+i)+1) << endl;
-	//	cout << (node) << " " << (*(p.first+i)) << endl;
+		    cout << (node+1) << " " << (*(p.first+i)+1) << endl;
+	      //	cout << (node) << " " << (*(p.first+i)) << endl;
       }
     }   
   }

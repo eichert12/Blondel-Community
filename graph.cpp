@@ -68,7 +68,7 @@ Graph::renumber(int type) {
   for (unsigned int i=0 ; i<links.size() ; i++) {
     if (linked[i]==1) {
       for (unsigned int j=0 ; j<links[i].size() ; j++) {
-	links[i][j].first = renum[links[i][j].first];
+	      links[i][j].first = renum[links[i][j].first];
       }
       links[renum[i]]=links[i];
     }
@@ -86,7 +86,7 @@ Graph::clean(int type) {
     for (unsigned int j=0 ; j<links[i].size() ; j++) {
       it = m.find(links[i][j].first);
       if (it==m.end())
-	m.insert(make_pair(links[i][j].first, links[i][j].second));
+	      m.insert(make_pair(links[i][j].first, links[i][j].second));
       else if (type==WEIGHTED)
       	it->second+=links[i][j].second;
     }
@@ -108,9 +108,9 @@ Graph::display(int type) {
       int dest   = links[i][j].first;
       int weight = links[i][j].second;
       if (type==WEIGHTED)
-	cout << i << " " << dest << " " << weight << endl;
+	      cout << i << " " << dest << " " << weight << endl;
       else
-	cout << i << " " << dest << endl;
+	      cout << i << " " << dest << endl;
     }
   }
 }
@@ -138,8 +138,8 @@ Graph::display_binary(char *filename, int type) {
   if (type==WEIGHTED) {
     for (unsigned int i=0 ; i<links.size() ; i++) {
       for (unsigned int j=0 ; j<links[i].size() ; j++) {
-	int weight = links[i][j].second;
-	foutput.write((char *)(&weight),4);
+      	int weight = links[i][j].second;
+      	foutput.write((char *)(&weight),4);
       }
     }
   }

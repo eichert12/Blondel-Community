@@ -38,22 +38,22 @@ parse_args(int argc, char **argv) {
     if(argv[i][0] == '-') {
       switch(argv[i][1]) {
       case 'i':
-	if (i==argc-1)
-	  usage(argv[0], "Infile missing\n");
-	infile = argv[i+1];
-	i++;
-	break;
+      	if (i==argc-1)
+      	  usage(argv[0], "Infile missing\n");
+      	infile = argv[i+1];
+      	i++;
+      	break;
       case 'o':
-	if (i==argc-1)
-	  usage(argv[0], "Outfile missing\n");
-        outfile = argv[i+1];
-	i++;
-	break;
+      	if (i==argc-1)
+      	  usage(argv[0], "Outfile missing\n");
+              outfile = argv[i+1];
+      	i++;
+      	break;
       case 'w' :
-	type = WEIGHTED;
-	break;
+      	type = WEIGHTED;
+      	break;
       default:
-	usage(argv[0], "Unknown option\n");
+	      usage(argv[0], "Unknown option\n");
       }
     } else {
       usage(argv[0], "More than one filename\n");

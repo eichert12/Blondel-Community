@@ -94,9 +94,9 @@ Graph::nb_selfloops(int node) {
   for (int i=0 ; i<nb_neighbors(node) ; i++) {
     if (*(p.first+i)==node) {
       if (weights!=NULL)
-	return *(p.second+i);
+	      return *(p.second+i);
       else 
-	return 1;
+	      return 1;
     }
   }
   return 0;

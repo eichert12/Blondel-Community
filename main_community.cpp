@@ -56,22 +56,22 @@ parse_args(int argc, char **argv) {
     if(argv[i][0] == '-') {
       switch(argv[i][1]) {
       case 'w':
-	type = WEIGHTED;
-	break;
+	      type = WEIGHTED;
+      	break;
       case 'q':
-	precision = atof(argv[i+1]);
-	i++;
-	break;
+      	precision = atof(argv[i+1]);
+      	i++;
+      	break;
       case 'l':
-	display_level = atoi(argv[i+1]);
-	i++;
-	break;
+      	display_level = atoi(argv[i+1]);
+      	i++;
+      	break;
       case 'k':
-	k1 = atoi(argv[i+1]);
-	i++;
-	break;
+      	k1 = atoi(argv[i+1]);
+      	i++;
+      	break;
       default:
-	usage(argv[0], "Unknown option\n");
+	      usage(argv[0], "Unknown option\n");
       }
     } else {
       if (filename==NULL)
@@ -88,8 +88,6 @@ display_time(const char *str) {
   time ( &rawtime );
   cerr << str << " : " << ctime (&rawtime);
 }
-
-
 
 int
 main(int argc, char **argv) {
@@ -130,9 +128,9 @@ main(int argc, char **argv) {
     Community c(g, -1, precision);
 
     cerr << "\nnetwork : " 
-	 << c.g.nb_nodes << " nodes, " 
-	 << c.g.nb_links << " links, "
-	 << c.g.total_weight << " weight." << endl;
+	       << c.g.nb_nodes << " nodes, " 
+      	 << c.g.nb_links << " links, "
+      	 << c.g.total_weight << " weight." << endl;
     
     new_mod = c.one_level();
     
